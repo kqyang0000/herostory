@@ -1,0 +1,13 @@
+[22:34:53,825] [INFO] ServiceMain.main --> 游戏服务器启动成功
+[22:41:12,641] [INFO] ServiceMain.main --> 游戏服务器启动成功
+[22:42:21,443] [INFO] ServiceMain.main --> 游戏服务器启动成功
+[23:33:29,353] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msg = BinaryWebSocketFrame(data: PooledUnsafeDirectByteBuf(ridx: 0, widx: 16, cap: 16))
+[23:33:30,073] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msg = BinaryWebSocketFrame(data: PooledUnsafeDirectByteBuf(ridx: 0, widx: 16, cap: 16))
+[23:33:31,165] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msg = BinaryWebSocketFrame(data: PooledUnsafeDirectByteBuf(ridx: 0, widx: 16, cap: 16))
+[23:33:34,975] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msg = BinaryWebSocketFrame(data: PooledUnsafeDirectByteBuf(ridx: 0, widx: 16, cap: 16))
+[23:33:35,196] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msg = BinaryWebSocketFrame(data: PooledUnsafeDirectByteBuf(ridx: 0, widx: 16, cap: 16))
+[23:33:35,614] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msg = BinaryWebSocketFrame(data: PooledUnsafeDirectByteBuf(ridx: 0, widx: 16, cap: 16))
+[23:33:36,126] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msg = BinaryWebSocketFrame(data: PooledUnsafeDirectByteBuf(ridx: 0, widx: 16, cap: 16))
+[23:38:38,511] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msg = BinaryWebSocketFrame(data: PooledUnsafeDirectByteBuf(ridx: 0, widx: 16, cap: 16))
+[23:38:38,671] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msg = BinaryWebSocketFrame(data: PooledUnsafeDirectByteBuf(ridx: 0, widx: 16, cap: 16))
+[23:38:38,838] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msg = BinaryWebSocketFrame(data: PooledUnsafeDirectByteBuf(ridx: 0, widx: 16, cap: 16))
