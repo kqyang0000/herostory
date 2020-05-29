@@ -1,57 +1,92 @@
-[21:40:22,795] [WARN] MacAddressUtil.defaultMachineId --> Failed to find a usable hardware address from the network interfaces; using random bytes: 24:8b:36:f6:12:63:71:0e
-[21:40:23,035] [INFO] ServiceMain.main --> 游戏服务器启动成功
-[21:41:12,582] [INFO] ServiceMain.main --> 游戏服务器启动成功
-[21:41:30,030] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserEntryCmd, msg = userId: 1
+[00:27:52,936] [INFO] ServiceMain.main --> 游戏服务器启动成功
+[00:27:58,755] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserEntryCmd, msg = userId: 1
 heroAvatar: "Hero_Hammer"
 
-[21:41:30,080] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = WhoElseIsHereCmd, msg = 
-[21:41:30,311] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserEntryCmd, msg = userId: 1
-heroAvatar: "Hero_Hammer"
+[00:27:58,780] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = WhoElseIsHereCmd, msg = 
+[00:28:00,460] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserMoveToCmd, msg = moveToPosX: 188.10033
+moveToPosY: 55.43608
 
-[21:41:30,316] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = WhoElseIsHereCmd, msg = 
-[21:41:34,203] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserEntryCmd, msg = userId: 2
+[00:28:01,598] [ERROR] GameMsgDecoder.channelRead --> 
+java.lang.NullPointerException
+	at org.tinygame.herostory.GameMsgDecoder.channelRead(GameMsgDecoder.java:42)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:93)
+	at io.netty.handler.codec.http.websocketx.Utf8FrameValidator.channelRead(Utf8FrameValidator.java:77)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler$1.channelRead(WebSocketServerProtocolHandler.java:272)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:326)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:300)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1422)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:931)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:700)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:635)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:552)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:514)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$6.run(SingleThreadEventExecutor.java:1050)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+[00:28:02,281] [ERROR] GameMsgDecoder.channelRead --> 
+java.lang.NullPointerException
+	at org.tinygame.herostory.GameMsgDecoder.channelRead(GameMsgDecoder.java:42)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:93)
+	at io.netty.handler.codec.http.websocketx.Utf8FrameValidator.channelRead(Utf8FrameValidator.java:77)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler$1.channelRead(WebSocketServerProtocolHandler.java:272)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:326)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:300)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1422)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:931)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:700)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:635)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:552)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:514)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$6.run(SingleThreadEventExecutor.java:1050)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+[00:28:05,248] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserEntryCmd, msg = userId: 2
 heroAvatar: "Hero_Shaman"
 
-[21:41:34,209] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = WhoElseIsHereCmd, msg = 
-[21:41:35,413] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserMoveToCmd, msg = moveToPosX: 152.9271
-moveToPosY: 43.201912
+[00:28:05,254] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = WhoElseIsHereCmd, msg = 
+[00:28:06,758] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserMoveToCmd, msg = moveToPosX: 194.21742
+moveToPosY: 2.6762247
 
-[21:41:50,651] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserMoveToCmd, msg = moveToPosX: 126.16485
-moveToPosY: -125.01792
-
-[21:41:56,165] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserMoveToCmd, msg = moveToPosX: -414.43253
-moveToPosY: 63.847073
-
-[21:42:11,425] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserMoveToCmd, msg = moveToPosX: -107.813644
-moveToPosY: 3.4408603
-
-[21:42:43,380] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserMoveToCmd, msg = moveToPosX: 59.641552
-moveToPosY: -102.07885
-
-[21:43:36,214] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserEntryCmd, msg = userId: 2
-heroAvatar: "Hero_Shaman"
-
-[21:43:36,220] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = WhoElseIsHereCmd, msg = 
-[21:43:42,630] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserMoveToCmd, msg = moveToPosX: 215.62721
-moveToPosY: 8.028674
-
-[21:52:44,480] [INFO] ServiceMain.main --> 游戏服务器启动成功
-[21:57:04,470] [INFO] ServiceMain.main --> 游戏服务器启动成功
-[21:57:34,745] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserEntryCmd, msg = userId: 1
-heroAvatar: "Hero_Hammer"
-
-[21:57:34,779] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = WhoElseIsHereCmd, msg = 
-[21:57:38,285] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserEntryCmd, msg = userId: 2
-heroAvatar: "Hero_Shaman"
-
-[21:57:38,288] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = WhoElseIsHereCmd, msg = 
-[21:57:39,589] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserMoveToCmd, msg = moveToPosX: 273.73953
-moveToPosY: 17.204302
-
-[21:57:45,320] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserEntryCmd, msg = userId: 2
-heroAvatar: "Hero_Shaman"
-
-[21:57:45,321] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = WhoElseIsHereCmd, msg = 
-[21:57:50,773] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserMoveToCmd, msg = moveToPosX: 240.86018
-moveToPosY: 67.67025
+[00:28:12,374] [INFO] GameMsgHandler.channelRead0 --> 收到客户端消息，msgType = UserMoveToCmd, msg = moveToPosX: -84.10994
+moveToPosY: 34.79092
 

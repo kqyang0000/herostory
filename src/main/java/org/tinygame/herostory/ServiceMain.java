@@ -21,6 +21,11 @@ public class ServiceMain {
     static public void main(String[] args) {
         PropertyConfigurator.configure(ServiceMain.class.getClassLoader().getResourceAsStream("log4j.properties"));
 
+        //初始化消息识别器
+        GameMsgRecognizer.init();
+        //初始化名利处理器工厂
+        CmdHandlerFactory.init();
+
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
 

@@ -1,13 +1,12 @@
 package org.tinygame.herostory;
 
-import com.google.protobuf.GeneratedMessageV3;
+import com.google.protobuf.Message;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.tinygame.herostory.msg.GameMsgProtocol;
 
 /**
  * 解码器
@@ -38,20 +37,11 @@ public class GameMsgDecoder extends ChannelInboundHandlerAdapter {
             byte[] msgBody = new byte[byteBuf.readableBytes()];
             byteBuf.readBytes(msgBody);
 
-            GeneratedMessageV3 cmd = null;
-            switch (msgCode) {
-                case GameMsgProtocol.MsgCode.USER_ENTRY_CMD_VALUE:
-                    cmd = GameMsgProtocol.UserEntryCmd.parseFrom(msgBody);
-                    break;
-                case GameMsgProtocol.MsgCode.WHO_ELSE_IS_HERE_CMD_VALUE:
-                    cmd = GameMsgProtocol.WhoElseIsHereCmd.parseFrom(msgBody);
-                    break;
-                case GameMsgProtocol.MsgCode.USER_MOVE_TO_CMD_VALUE:
-                    cmd = GameMsgProtocol.UserMoveToCmd.parseFrom(msgBody);
-                    break;
-                default:
-                    break;
-            }
+            //获取消息构造器
+            Message.Builder msgBuilder = GameMsgRecognizer.getBuilderByMsgCode(msgCode);
+            msgBuilder.clear();
+            msgBuilder.mergeFrom(msgBody);
+            Message cmd = msgBuilder.build();
 
             if (cmd != null) {
                 ctx.fireChannelRead(cmd);
