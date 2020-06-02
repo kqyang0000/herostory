@@ -14,6 +14,7 @@ import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.tinygame.herostory.cmdhandler.CmdHandlerFactory;
 
 public class ServiceMain {
     static private final Logger LOGGER = LoggerFactory.getLogger(ServiceMain.class);

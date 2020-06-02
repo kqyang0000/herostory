@@ -1,4 +1,4 @@
-package org.tinygame.herostory;
+package org.tinygame.herostory.model;
 
 import java.util.Collection;
 import java.util.Map;
@@ -41,6 +41,16 @@ public final class UserManager {
      */
     static public Collection<User> listUser() {
         return _userMap.values();
+    }
+
+    /**
+     * 通过userId获取用户
+     *
+     * @param userId
+     * @return
+     */
+    static public User getByUserId(int userId) {
+        return _userMap.get(userId);
     }
 
 }

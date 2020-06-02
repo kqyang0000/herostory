@@ -3,8 +3,8 @@ package org.tinygame.herostory.cmdhandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.AttributeKey;
 import org.tinygame.herostory.Broadcaster;
-import org.tinygame.herostory.User;
-import org.tinygame.herostory.UserManager;
+import org.tinygame.herostory.model.User;
+import org.tinygame.herostory.model.UserManager;
 import org.tinygame.herostory.msg.GameMsgProtocol;
 
 public class UserEntryCmdHandler implements ICmdHandler<GameMsgProtocol.UserEntryCmd> {
@@ -19,6 +19,7 @@ public class UserEntryCmdHandler implements ICmdHandler<GameMsgProtocol.UserEntr
         User newUser = new User();
         newUser.setUserId(userId);
         newUser.setHeroAvatar(heroAvatar);
+        newUser.setCurHp(100);
         UserManager.addUser(newUser);
 
         //存储用户id，保存至session

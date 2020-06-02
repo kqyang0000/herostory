@@ -6,10 +6,8 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.AttributeKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.tinygame.herostory.cmdhandler.ICmdHandler;
-import org.tinygame.herostory.cmdhandler.UserEntryCmdHandler;
-import org.tinygame.herostory.cmdhandler.UserMoveToCmdHandler;
-import org.tinygame.herostory.cmdhandler.WhoElseIsHereCmdHandler;
+import org.tinygame.herostory.cmdhandler.*;
+import org.tinygame.herostory.model.UserManager;
 import org.tinygame.herostory.msg.GameMsgProtocol;
 
 public class GameMsgHandler extends SimpleChannelInboundHandler<Object> {
@@ -35,6 +33,8 @@ public class GameMsgHandler extends SimpleChannelInboundHandler<Object> {
         }
 
         try {
+            super.handlerRemoved(ctx);
+            Broadcaster.removeChannel(ctx.channel());
 
             Integer userId = (Integer) ctx.channel().attr(AttributeKey.valueOf("userId")).get();
 
@@ -49,7 +49,7 @@ public class GameMsgHandler extends SimpleChannelInboundHandler<Object> {
 
             GameMsgProtocol.UserQuitResult newResult = resultBuilder.build();
             Broadcaster.broadcast(newResult);
-            Broadcaster.removeChannel(ctx.channel());
+
         } catch (Exception ex) {
             logger.error(ex.getMessage(), ex);
         }
