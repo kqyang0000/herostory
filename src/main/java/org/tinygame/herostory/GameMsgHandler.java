@@ -1,12 +1,10 @@
 package org.tinygame.herostory;
 
-import com.google.protobuf.GeneratedMessageV3;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.AttributeKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.tinygame.herostory.cmdhandler.*;
 import org.tinygame.herostory.model.UserManager;
 import org.tinygame.herostory.msg.GameMsgProtocol;
 
@@ -57,30 +55,10 @@ public class GameMsgHandler extends SimpleChannelInboundHandler<Object> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
-        if (msg == null) {
+        if (msg == null || msg == null) {
             return;
         }
 
-        logger.info(
-                "收到客户端消息，msgType = {}, msg = {}",
-                msg.getClass().getSimpleName(),
-                msg
-        );
-        try {
-            ICmdHandler<? extends GeneratedMessageV3> cmdHandler = CmdHandlerFactory.create(msg.getClass());
-            if (cmdHandler != null) {
-                cmdHandler.handle(ctx, cast(msg));
-            }
-        } catch (Exception ex) {
-            logger.error(ex.getMessage(), ex);
-        }
-    }
-
-    static private <TCmd extends GeneratedMessageV3> TCmd cast(Object msg) {
-        if (msg == null) {
-            return null;
-        } else {
-            return (TCmd) msg;
-        }
+        MainMsgProcessor.getInstance().process(ctx, msg);
     }
 }

@@ -1,6 +1,6 @@
-package org.tinygame.herostory.model;
+package org.tinygame.herostory.login.db;
 
-public class User {
+public class UserEntity {
     /**
      * 用户id
      */
@@ -10,17 +10,13 @@ public class User {
      */
     private String userName;
     /**
+     * 密码
+     */
+    private String password;
+    /**
      * 英雄形象
      */
     private String heroAvatar;
-    /**
-     * 血量
-     */
-    private int curHp;
-    /**
-     * 移动状态
-     */
-    private final MoveState moveState = new MoveState();
 
     public int getUserId() {
         return userId;
@@ -38,23 +34,19 @@ public class User {
         this.userName = userName;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getHeroAvatar() {
         return heroAvatar;
     }
 
-    public int getCurHp() {
-        return curHp;
-    }
-
-    public void setCurHp(int curHp) {
-        this.curHp = curHp;
-    }
-
     public void setHeroAvatar(String heroAvatar) {
         this.heroAvatar = heroAvatar;
-    }
-
-    public MoveState getMoveState() {
-        return moveState;
     }
 }

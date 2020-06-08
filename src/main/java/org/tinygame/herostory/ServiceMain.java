@@ -24,8 +24,10 @@ public class ServiceMain {
 
         //初始化消息识别器
         GameMsgRecognizer.init();
-        //初始化名利处理器工厂
+        //初始化命令处理器工厂
         CmdHandlerFactory.init();
+        //初始化 Mysql 会话工厂
+        MySqlSessionFactory.init();
 
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();

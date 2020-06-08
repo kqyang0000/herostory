@@ -13,21 +13,19 @@ public class UserEntryCmdHandler implements ICmdHandler<GameMsgProtocol.UserEntr
         if (ctx == null || cmd == null) {
             return;
         }
-        int userId = cmd.getUserId();
-        String heroAvatar = cmd.getHeroAvatar();
 
-        User newUser = new User();
-        newUser.setUserId(userId);
-        newUser.setHeroAvatar(heroAvatar);
-        newUser.setCurHp(100);
-        UserManager.addUser(newUser);
+        Integer userId = (Integer) ctx.channel().attr(AttributeKey.valueOf("userId")).get();
 
-        //存储用户id，保存至session
-        ctx.channel().attr(AttributeKey.valueOf("userId")).set(userId);
+        if (userId == null) {
+            return;
+        }
+
+        User existUser = UserManager.getByUserId(userId);
 
         GameMsgProtocol.UserEntryResult.Builder resultBuilder = GameMsgProtocol.UserEntryResult.newBuilder();
         resultBuilder.setUserId(userId);
-        resultBuilder.setHeroAvatar(heroAvatar);
+        resultBuilder.setUserName(existUser.getUserName());
+        resultBuilder.setHeroAvatar(existUser.getHeroAvatar());
 
         //构建结果，发送广播
         GameMsgProtocol.UserEntryResult newResult = resultBuilder.build();
