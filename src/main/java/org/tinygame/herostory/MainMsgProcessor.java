@@ -64,6 +64,19 @@ public final class MainMsgProcessor {
 
     }
 
+    /**
+     * 处理 Runnable 实例
+     *
+     * @param r
+     */
+    public void process(Runnable r) {
+        if (r == null) {
+            return;
+        }
+
+        _es.submit(r);
+    }
+
     static private <TCmd extends GeneratedMessageV3> TCmd cast(Object msg) {
         if (msg == null) {
             return null;
