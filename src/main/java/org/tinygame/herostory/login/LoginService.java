@@ -44,6 +44,12 @@ public final class LoginService {
         }
 
         AsyncGetUserEntity asyncOp = new AsyncGetUserEntity(userName, password) {
+
+            @Override
+            public int getBindId() {
+                return userName.charAt(userName.length() - 1);
+            }
+
             @Override
             public void doFinish() {
                 if (null != callback) {
