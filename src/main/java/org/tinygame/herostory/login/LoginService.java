@@ -1,5 +1,6 @@
 package org.tinygame.herostory.login;
 
+import com.alibaba.fastjson.JSONObject;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +9,8 @@ import org.tinygame.herostory.async.AsyncOperationProcessor;
 import org.tinygame.herostory.async.IAsyncOperation;
 import org.tinygame.herostory.login.db.IUserDao;
 import org.tinygame.herostory.login.db.UserEntity;
+import org.tinygame.herostory.util.RedisUtil;
+import redis.clients.jedis.Jedis;
 
 import java.util.function.Function;
 
@@ -60,6 +63,27 @@ public final class LoginService {
         AsyncOperationProcessor.getInstance().process(asyncOp);
     }
 
+    /**
+     * 更新 redis 中的用户基本信息
+     *
+     * @param userEntity
+     */
+    private void updateBasicInfoInRedis(UserEntity userEntity) {
+        if (userEntity == null) {
+            return;
+        }
+
+        try (Jedis jedis = RedisUtil.getJedis()) {
+            JSONObject jsonObj = new JSONObject();
+            jsonObj.put("userName", userEntity.getUserName());
+            jsonObj.put("heroAvatar", userEntity.getHeroAvatar());
+
+            jedis.hset("User_" + userEntity.getUserId(), "BasicInfo", jsonObj.toJSONString());
+        } catch (Exception ex) {
+            LOGGER.error(ex.getMessage(), ex);
+        }
+    }
+
 
     private class AsyncGetUserEntity implements IAsyncOperation {
 
@@ -101,6 +125,8 @@ public final class LoginService {
                     userEntity.setHeroAvatar("Hero_Shaman");
                     dao.insertInfo(userEntity);
                 }
+
+                LoginService.getInstance().updateBasicInfoInRedis(userEntity);
 
                 this._userEntity = userEntity;
             } catch (Exception ex) {

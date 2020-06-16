@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.tinygame.herostory.Broadcaster;
 import org.tinygame.herostory.model.User;
 import org.tinygame.herostory.model.UserManager;
+import org.tinygame.herostory.mq.MqProducer;
+import org.tinygame.herostory.mq.VictorMsg;
 import org.tinygame.herostory.msg.GameMsgProtocol;
 
 public class UserAttkCmdHandler implements ICmdHandler<GameMsgProtocol.UserAttkCmd> {
@@ -48,6 +50,12 @@ public class UserAttkCmdHandler implements ICmdHandler<GameMsgProtocol.UserAttkC
         //广播死亡结果
         if (targetUser.getCurHp() <= 0) {
             broadcastDieResult(targetUserId);
+
+            VictorMsg newMsg = new VictorMsg();
+            newMsg.setWinnerId(attkUserId);
+            newMsg.setLoserId(targetUserId);
+
+            MqProducer.sendMsg("herostory_victor", newMsg);
         }
     }
 

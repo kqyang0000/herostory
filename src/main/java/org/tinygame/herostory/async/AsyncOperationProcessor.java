@@ -1,5 +1,7 @@
 package org.tinygame.herostory.async;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.tinygame.herostory.MainMsgProcessor;
 
 import java.util.concurrent.ExecutorService;
@@ -9,6 +11,8 @@ import java.util.concurrent.Executors;
  * 异步操作处理器
  */
 public final class AsyncOperationProcessor {
+    static private final Logger LOGGER = LoggerFactory.getLogger(AsyncOperationProcessor.class);
+
     /**
      * 单例对象
      */
@@ -57,10 +61,14 @@ public final class AsyncOperationProcessor {
         int esIndex = bindId % _esArray.length;
 
         _esArray[esIndex].submit(() -> {
-            //执行异步操作
-            op.doAsync();
-            //回到主线程执行完成操作
-            MainMsgProcessor.getInstance().process(op::doFinish);
+            try {
+                //执行异步操作
+                op.doAsync();
+                //回到主线程执行完成操作
+                MainMsgProcessor.getInstance().process(op::doFinish);
+            } catch (Exception ex) {
+                LOGGER.error(ex.getMessage(), ex);
+            }
         });
     }
 

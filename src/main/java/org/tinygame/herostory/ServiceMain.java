@@ -15,6 +15,8 @@ import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tinygame.herostory.cmdhandler.CmdHandlerFactory;
+import org.tinygame.herostory.mq.MqProducer;
+import org.tinygame.herostory.util.RedisUtil;
 
 public class ServiceMain {
     static private final Logger LOGGER = LoggerFactory.getLogger(ServiceMain.class);
@@ -28,6 +30,10 @@ public class ServiceMain {
         CmdHandlerFactory.init();
         //初始化 Mysql 会话工厂
         MySqlSessionFactory.init();
+        //初始化 Redis
+        RedisUtil.init();
+        //初始化消息队列
+        MqProducer.init();
 
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
